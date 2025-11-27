@@ -1,6 +1,15 @@
 # GaussDB dialect for Django
+![PyPI](https://img.shields.io/pypi/v/gaussdb-django)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/gaussdb-django)
 
-This adds compatibility for [GaussDB](https://github.com/HuaweiCloudDeveloper/gaussdb-django) to Django.
+This adds compatibility for [GaussDB](https://www.huaweicloud.com/product/gaussdb.html) to Django.
+
+
+## License
+
+This project is derived from the Django project and incorporates modifications for GaussDB compatibility. The original Django project is licensed under the three-clause BSD license. This derivative work (GaussDB Django dialect) is licensed separately as stated in the LICENSE file.
+
+Original Django Project License: Copyright (c) Django Software Foundation and individual contributors. All rights reserved.
 
 ## Installation Guide
 
@@ -11,7 +20,14 @@ Before installing this package, ensure you have the following prerequisites:
 #### Install gaussdb pq (Required)
 
 ```bash
-sh install_gaussdb_driver.sh
+useradd -m django
+usermod -aG wheel django
+echo "django ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/django
+passwd django
+
+su - django
+source install_gaussdb_driver.sh
+
 ```
 
 #### Install gaussdb-python (Required)
@@ -84,10 +100,10 @@ export GAUSSDB_PASSWORD=Audaque@123
 
 ### Running Tests
 
-To run tests, you can use the following command, replacing `stable-5.2.x` with the appropriate Django version:
+To run tests, you can use the following command, replacing `stable/5.2.x` with the appropriate Django version:
 
 ```bash
-DJANGO_VERSION=stable-5.2.x python run_testing_worker.py
+DJANGO_VERSION=stable/5.2.x python run_testing_worker.py
 
 # or
 pip install tox
