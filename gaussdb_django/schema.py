@@ -336,6 +336,7 @@ class DatabaseSchemaEditor(BaseDatabaseSchemaEditor):
         enforce_not_null_types = ("DateField", "DateTimeField", "TimeField")
         if (
             old_field.null == new_field.null
+            and not new_field.null
             and new_field.get_internal_type() in enforce_not_null_types
         ):
             effective_null = False
