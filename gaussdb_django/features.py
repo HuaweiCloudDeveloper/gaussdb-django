@@ -134,9 +134,9 @@ class DatabaseFeatures(BaseDatabaseFeatures):
     supports_json_nested_key = False
     test_collations = {
         "deterministic": "C",
-        "non_default": "sv_SE.utf8",
-        "swedish_ci": "sv_SE.utf8",
-        "virtual": "sv_SE.utf8",
+        "non_default": "en_GB.utf8",
+        "swedish_ci": "en_GB.utf8",
+        "virtual": "en_GB.utf8",
     }
     test_now_utc_template = "STATEMENT_TIMESTAMP() AT TIME ZONE 'UTC'"
     insert_test_table_with_defaults = "INSERT INTO {} DEFAULT VALUES"
